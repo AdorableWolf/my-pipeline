@@ -35,6 +35,25 @@ pipeline {
                 }
             }
    }
+		stage('Test2') {
+		parallel {
+			stage('Hello') {
+				steps {
+					sh 'echo "IceCream"'
+				}
+			}
+			stage('World') {
+				steps {
+					sh 'echo "IceCream"'
+				}
+			}
+			stage('IceCream') {
+				steps {
+					sh 'echo "IceCream"'
+				}
+			}
+		}
+}
       
    }
    
