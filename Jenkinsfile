@@ -1,5 +1,5 @@
 pipeline {
-   agent  {
+   agent{
        kubernetes {
           containerTemplate {
             name 'maven'
@@ -7,28 +7,32 @@ pipeline {
             ttyEnabled true
             command 'cat'
           }
-       }
+        }
    }
+
    stages {
-      stage('Build') {
+      stage('Hello') {
          steps {
             echo 'Hello World'
          }
       }
       stage('Test') {
-         parallel {
-            stage('Chrome'){
-               steps{
-                  sh 'echo "Chrome"'
-               }
+            parallel {
+                stage('Chrome') {
+                    steps {
+                        sh 'echo "Chrome"'
+                    }
+                }
+                stage('Firefox') {
+                    steps {
+                        sh 'echo "Firefox"'
+                    }
+                }
             }
-            stage('Firefox'){
-               steps {
-                  sh 'echo "Firefox"'
-               }
-            }
-         }
-      }
    }
+      
+   }
+   
+   
 }
 
