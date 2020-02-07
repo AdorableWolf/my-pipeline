@@ -6,9 +6,9 @@ pipeline {
 				image ‘maven:3.3.9-jdk8-alpine’
 				ttyEnabled true
 				command ‘cat’
-}
-}
-}
+			}
+		}
+	}
     stages {
         stage('Build') {
             steps {
