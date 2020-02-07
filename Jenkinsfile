@@ -28,6 +28,11 @@ pipeline {
                         sh 'echo "Firefox"'
                     }
                 }
+				stage('Edge') {
+                    steps {
+                        sh 'echo "Edge"'
+                    }
+                }
             }
    }
       
